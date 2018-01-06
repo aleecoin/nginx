@@ -8,7 +8,8 @@ if [ $USE_PERL != NO ]; then
     cat << END                                                >> $NGX_MAKEFILE
 
 install_perl_modules:
-	cd $NGX_OBJS/src/http/modules/perl && \$(MAKE) install
+	cd $NGX_OBJS/src/http/modules/perl
+  NGX_INCS="src/core src/event src/event/modules src/os/unix src/http/modules/perl ../openssl/include" perl Makefile.PL PREFIX=$NGX_MODULES_PATH/perl && \$(MAKE) install
 END
 
     NGX_INSTALL_PERL_MODULES=install_perl_modules

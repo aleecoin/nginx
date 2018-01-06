@@ -156,6 +156,23 @@ if [ $ngx_found = no ]; then
 fi
 
 
+if [ $ngx_found = no ]; then
+
+    # Homebrew
+
+    ngx_feature="libexslt in /usr/local/"
+    ngx_feature_path="/usr/local/include/libxml2/libxml /usr/local/include"
+
+    if [ $NGX_RPATH = YES ]; then
+        ngx_feature_libs="-R/usr/local/lib -L/usr/local/lib -lexslt"
+    else
+        ngx_feature_libs="-L/usr/local/lib -lexslt"
+    fi
+
+    . auto/feature
+fi
+
+
 if [ $ngx_found = yes ]; then
     if [ $USE_LIBXSLT = YES ]; then
         CORE_LIBS="$CORE_LIBS -lexslt"
