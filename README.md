@@ -8,8 +8,8 @@ mkdir github
 cd github
 git clone git://git.openssl.org/openssl.git
 pushd openssl
-# Prepare openssl source, we use 1.0.2n stable version here
-git checkout -b 1.0.2n tags/OpenSSL_1_0_2n
+# Prepare openssl source, we use 1.1.0j stable version here
+git checkout -b 1.1.0j tags/OpenSSL_1_1_0j
 ./Configure linux-x86_64 -shared
 make
 popd
@@ -25,7 +25,7 @@ yum install -y gd-devel GeoIP-devel gperftools-devel libxslt-devel pcre-devel pe
 ```
 mkdir github
 pushd github
-git clone -b OpenSSL_1_0_2-stable --depth 1 git://git.openssl.org/openssl.git
+git clone -b OpenSSL_1_1_0-stable --depth 1 git://git.openssl.org/openssl.git
 git clone -b stable-1.14-linux --depth 1 https://github.com/matr1xc0in/nginx.git
 pushd nginx
 ./auto/configure --prefix=/usr/share/nginx \
